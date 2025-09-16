@@ -1,14 +1,111 @@
 <!doctype html>
 <html lang="th">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>app-ads.txt host</title>
-  </head>
-  <body>
-    <main>
-      <h1>app-ads.txt is hosted here.</h1>
-      <p>File path: <code>/app-ads.txt</code></p>
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>app-ads.txt host · Skykick Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    :root{
+      --bg1:#0f172a;  /* slate-900 */
+      --bg2:#1e293b;  /* slate-800 */
+      --card:#111827; /* gray-900 */
+      --text:#e5e7eb; /* gray-200 */
+      --muted:#94a3b8;/* slate-400 */
+      --accent:#38bdf8;/* sky-400 */
+      --ok:#22c55e;    /* green-500 */
+      --bad:#ef4444;   /* red-500 */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, var(--bg2), transparent 60%),
+                  radial-gradient(1200px 600px at 120% 110%, var(--bg2), transparent 60%),
+                  var(--bg1);
+    }
+    .wrap{
+      max-width:920px;
+      margin:0 auto;
+      padding:40px 20px 80px;
+    }
+    .card{
+      background:linear-gradient(180deg,#0b1220 0%, #0b1220cc 100%);
+      border:1px solid #233043;
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 10px 30px #00000040, inset 0 1px 0 #49638333;
+      backdrop-filter: blur(6px);
+    }
+    h1{font-size:clamp(28px,4vw,40px); margin:0 0 10px}
+    p.lead{color:var(--muted); margin:0 0 18px}
+    code, .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
+    .row{display:flex; gap:14px; flex-wrap:wrap}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      background:#0b1220; border:1px solid #233043; border-radius:999px;
+      padding:10px 14px; color:var(--text)
+    }
+    .btn{
+      display:inline-block; text-decoration:none; color:#031018; background:var(--accent);
+      padding:10px 14px; border-radius:10px; font-weight:600
+    }
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .panel{border:1px dashed #334155; border-radius:14px; padding:16px}
+    .status{font-weight:700}
+    .ok{color:var(--ok)} .bad{color:var(--bad)}
+    footer{margin-top:28px; color:var(--muted); font-size:14px}
+    a{color:var(--accent)}
+    .small{font-size:14px; color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>app-ads.txt is hosted here</h1>
+      <p class="lead">หน้านี้มีไว้ยืนยันสิทธิ์ขายโฆษณาให้แอปของคุณ (มาตรฐาน IAB Tech Lab)</p>
+
+      <div class="grid" style="margin:18px 0 8px">
+        <div class="panel">
+          <div class="mono small">ไฟล์อยู่ที่: <strong>/app-ads.txt</strong></div>
+          <div style="margin:10px 0 14px"><a class="btn" href="/app-ads.txt" target="_blank" rel="noopener">เปิดไฟล์ app-ads.txt</a></div>
+          <div class="small">นำโดเมนนี้ไปใส่ใน Google Play Console → <em>Store Settings</em> ที่ช่อง <strong>Website</strong></div>
+        </div>
+        <div class="panel">
+          <div class="small">สถานะไฟล์ (ลองเช็คแบบ client-side):</div>
+          <div id="status" class="status">กำลังตรวจสอบ…</div>
+          <div class="small">หมายเหตุ: สถานะนี้เป็นการตรวจแบบหน้าเว็บเท่านั้น—ระบบ AdMob จะมีรอบ crawl ของตัวเอง</div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px" class="row">
+        <span class="pill mono">Publisher: <strong>pub-4654633601225060</strong></span>
+        <span class="pill mono">Seller: <strong>google.com</strong></span>
+        <span class="pill mono">Relation: <strong>DIRECT</strong></span>
+        <span class="pill mono">ID: <strong>f08c47fec0942fa0</strong></span>
+      </div>
+
+      <footer>
+        Tips: เก็บ <code>app-ads.txt</code> ไว้ที่โฟลเดอร์รากของเว็บไซต์เสมอ และอย่าใส่ช่องว่าง/บรรทัดเกินในไฟล์
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (async () => {
+      const el = document.getElementById('status');
+      try{
+        const res = await fetch('/app-ads.txt', {cache:'no-store'});
+        if (!res.ok) { el.innerHTML = '<span class="bad">ไม่พบไฟล์ (HTTP ' + res.status + ')</span>'; return; }
+        const text = (await res.text()).trim();
+        const ok = /^google\.com,\s*pub-4654633601225060,\s*DIRECT,\s*f08c47fec0942fa0$/i.test(text);
+        el.innerHTML = ok ? '<span class="ok">พบไฟล์และรูปแบบถูกต้อง</span>' : '<span class="bad">พบไฟล์ แต่เนื้อหาไม่ตรง</span>';
+      }catch(e){
+        el.innerHTML = '<span class="bad">ตรวจสอบไม่สำเร็จ</span>';
+      }
+    })();
+  </script>
+</body>
 </html>
