@@ -1,50 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Meaw Meaw Match-3</title>
-  <style>
-    body { font-family: 'Kanit', sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.8; color: #444; }
-    h1 { color: #e66a9e; text-align: center; }
-    h2 { color: #e66a9e; margin-top: 30px; }
-    a { color: #e66a9e; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .logo { text-align: center; margin-bottom: 20px; }
-    img { max-width: 100%; border-radius: 12px; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy - Meaw Meaw Match-3</title>
+<style>
+  :root {
+    --brand:#e66a9e; --ink:#333; --muted:#777; --bg:#fff;
+  }
+  body { font-family: system-ui, "Kanit", sans-serif; margin:0; background:var(--bg); color:var(--ink); line-height:1.8; }
+  .hero { text-align:center; padding:28px 16px 8px; background:#000; }
+  .hero img { max-width:960px; width:100%; border-radius:12px; }
+  .brand { display:flex; justify-content:center; margin:12px 0 8px; }
+  .brand img{ width:160px; }
+  .wrap { max-width:880px; margin:24px auto 64px; padding:0 16px; }
+  h1{ color:var(--brand); text-align:center; margin:16px 0 6px; }
+  h2{ color:var(--brand); margin-top:28px; }
+  .meta{ text-align:center; color:var(--muted); margin-bottom:16px; }
+  a{ color:var(--brand); text-decoration:none; } a:hover{ text-decoration:underline; }
+  .lang-switch{ display:flex; gap:8px; justify-content:center; margin:12px 0 24px; }
+  .lang-switch button{ border:1px solid var(--brand); background:#fff; color:var(--brand); padding:6px 12px; border-radius:999px; cursor:pointer; }
+  .lang-switch button.active{ background:var(--brand); color:#fff; }
+  section{ display:none; }
+  section.active{ display:block; }
+  footer{ text-align:center; color:var(--muted); margin-top:32px; }
+</style>
+<script>
+  function setLang(k){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(k).classList.add("active");
+    document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.remove("active"));
+    document.getElementById("btn-"+k).classList.add("active");
+  }
+  document.addEventListener("DOMContentLoaded",()=>setLang(location.hash==="#th"?"th":"en"));
+</script>
 </head>
 <body>
-  <div class="logo">
-    <img src="images/cover_page.jpg" alt="SkyKick Studio Cover" />
-    <img src="images/Sky_kick_logo.png" alt="SkyKick Studio Logo" width="200" />
+  <div class="hero">
+    <img src="images/cover_page.jpg" alt="SkyKick Studio Cover">
+    <div class="brand"><img src="images/Sky_kick_logo.png" alt="SkyKick Studio Logo"></div>
   </div>
 
-  <h1>Privacy Policy</h1>
-  <p>Effective date: October 2025</p>
-  
-  <p>SkyKick Studio ("we", "us", or "our") developed the <b>Meaw Meaw Match-3</b> game as a free-to-play entertainment app. This page informs visitors about our policies regarding the collection, use, and disclosure of personal information.</p>
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: October 2025 · SkyKick Studio</p>
 
-  <h2>Information Collection and Use</h2>
-  <p>The game does not collect personally identifiable information directly. However, third-party services (e.g., Google AdMob, Unity Analytics) may collect data to improve ads and gameplay experience.</p>
+    <div class="lang-switch">
+      <button id="btn-en" onclick="setLang('en')">English</button>
+      <button id="btn-th" onclick="setLang('th')">ไทย</button>
+    </div>
 
-  <h2>Log Data</h2>
-  <p>In case of errors, we may collect log data such as device model, OS version, and crash details to improve stability.</p>
+    <!-- EN -->
+    <section id="en">
+      <p>SkyKick Studio (“we”, “us”, or “our”) developed <b>Meaw Meaw Match-3</b> as a free-to-play entertainment app. This page explains how we collect, use, and disclose information.</p>
 
-  <h2>Cookies</h2>
-  <p>We do not use cookies directly. Some third-party SDKs may use cookies for personalized ads.</p>
+      <h2>Information Collection and Use</h2>
+      <p>The game does not collect personally identifiable information directly. Third-party services may collect data to improve ads and gameplay experience:</p>
+      <ul>
+        <li>Google AdMob – advertising</li>
+        <li>Unity Analytics – basic gameplay analytics</li>
+      </ul>
 
-  <h2>Security</h2>
-  <p>We use commercially acceptable means to protect your data but cannot guarantee absolute security.</p>
+      <h2>Log Data</h2>
+      <p>Upon errors or crashes, diagnostic data (device model, OS version, crash stack) may be collected to improve stability.</p>
 
-  <h2>Links to Other Sites</h2>
-  <p>Our game may link to external sites. Please review their Privacy Policies when visiting them.</p>
+      <h2>Cookies</h2>
+      <p>The game does not use cookies directly. Some third-party SDKs may use cookies or similar technologies for ad personalisation.</p>
 
-  <h2>Children’s Privacy</h2>
-  <p>Our game targets general audiences and does not knowingly collect data from children under 13.</p>
+      <h2>Security</h2>
+      <p>We use commercially acceptable means to protect data, but no method of transmission or storage is 100% secure.</p>
 
-  <h2>Contact Us</h2>
-  <p>If you have questions or suggestions, contact us at:  
-  📧 <a href="mailto:skykick.st.co@gmail.com">skykick.st.co@gmail.com</a></p>
+      <h2>Links to Other Sites</h2>
+      <p>Our game may link to external sites. Review their privacy policies before using them. We have no control over third-party content or practices.</p>
+
+      <h2>Children’s Privacy</h2>
+      <p>The game targets general audiences and does not knowingly collect data from children under 13.</p>
+
+      <h2>Changes</h2>
+      <p>We may update this Policy from time to time. Continued use after changes means you accept the revised Policy.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or requests: <a href="mailto:skykick.st.co@gmail.com">skykick.st.co@gmail.com</a></p>
+      <footer>© SkyKick Studio. All rights reserved.</footer>
+    </section>
+
+    <!-- TH -->
+    <section id="th">
+      <p><b>SkyKick Studio</b> (“เรา”) เป็นผู้พัฒนาเกม <b>Meaw Meaw Match-3</b> หน้านี้อธิบายนโยบายเกี่ยวกับการเก็บ ใช้ และเปิดเผยข้อมูลส่วนบุคคลของผู้ใช้</p>
+
+      <h2>การเก็บและการใช้ข้อมูล</h2>
+      <p>ตัวเกมไม่ได้เก็บข้อมูลที่ระบุตัวตนผู้ใช้โดยตรง อย่างไรก็ตามมีบริการภายนอกที่อาจเก็บข้อมูลเพื่อปรับปรุงโฆษณาและประสบการณ์เล่นเกม ได้แก่:</p>
+      <ul>
+        <li>Google AdMob – บริการแสดงโฆษณา</li>
+        <li>Unity Analytics – วิเคราะห์การใช้งานเบื้องต้น</li>
+      </ul>
+
+      <h2>ข้อมูลบันทึก (Log Data)</h2>
+      <p>เมื่อเกิดข้อผิดพลาด/แครช เราอาจได้รับข้อมูลเชิงเทคนิค เช่น รุ่นอุปกรณ์ เวอร์ชันระบบปฏิบัติการ และรายละเอียดแครช เพื่อใช้ปรับปรุงเสถียรภาพ</p>
+
+      <h2>คุกกี้</h2>
+      <p>เกมไม่ได้ใช้คุกกี้โดยตรง แต่ SDK ของบุคคลที่สามอาจใช้คุกกี้หรือเทคโนโลยีที่คล้ายกันเพื่อปรับโฆษณาให้เหมาะกับผู้ใช้</p>
+
+      <h2>ความปลอดภัยของข้อมูล</h2>
+      <p>เราดำเนินมาตรการที่เหมาะสมในเชิงพาณิชย์เพื่อปกป้องข้อมูล แต่ไม่สามารถรับประกันความปลอดภัยได้ 100%</p>
+
+      <h2>ลิงก์ไปยังเว็บไซต์อื่น</h2>
+      <p>ตัวเกมอาจมีลิงก์ไปยังเว็บไซต์ภายนอก โปรดตรวจทวนนโยบายความเป็นส่วนตัวของเว็บไซต์เหล่านั้น เราไม่สามารถควบคุมเนื้อหาหรือแนวปฏิบัติของบุคคลที่สามได้</p>
+
+      <h2>ความเป็นส่วนตัวของเด็ก</h2>
+      <p>เกมนี้มุ่งสู่ผู้ใช้ทั่วไป และไม่ได้มีเจตนาเก็บข้อมูลจากเด็กอายุต่ำกว่า 13 ปี</p>
+
+      <h2>การเปลี่ยนแปลงนโยบาย</h2>
+      <p>เราอาจปรับปรุงนโยบายเป็นครั้งคราว การใช้งานต่อหลังมีการปรับปรุงถือว่าเป็นการยอมรับนโยบายฉบับปรับปรุง</p>
+
+      <h2>ติดต่อเรา</h2>
+      <p>สอบถามเพิ่มเติมได้ที่: <a href="mailto:skykick.st.co@gmail.com">skykick.st.co@gmail.com</a></p>
+      <footer>© SkyKick Studio สงวนลิขสิทธิ์</footer>
+    </section>
+  </div>
 </body>
 </html>
