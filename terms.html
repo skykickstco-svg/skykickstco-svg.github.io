@@ -1,50 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Use - Meaw Meaw Match-3</title>
-  <style>
-    body { font-family: 'Kanit', sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.8; color: #444; }
-    h1 { color: #e66a9e; text-align: center; }
-    h2 { color: #e66a9e; margin-top: 30px; }
-    a { color: #e66a9e; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .logo { text-align: center; margin-bottom: 20px; }
-    img { max-width: 100%; border-radius: 12px; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Use - Meaw Meaw Match-3</title>
+<style>
+  :root { --brand:#e66a9e; --ink:#333; --muted:#777; --bg:#fff; }
+  body { font-family: system-ui,"Kanit",sans-serif; margin:0; background:var(--bg); color:var(--ink); line-height:1.8; }
+  .hero { text-align:center; padding:28px 16px 8px; background:#000; }
+  .hero img { max-width:960px; width:100%; border-radius:12px; }
+  .brand { display:flex; justify-content:center; margin:12px 0 8px; }
+  .brand img{ width:160px; }
+  .wrap { max-width:880px; margin:24px auto 64px; padding:0 16px; }
+  h1{ color:var(--brand); text-align:center; margin:16px 0 6px; }
+  h2{ color:var(--brand); margin-top:28px; }
+  .meta{ text-align:center; color:var(--muted); margin-bottom:16px; }
+  a{ color:var(--brand); text-decoration:none; } a:hover{ text-decoration:underline; }
+  .lang-switch{ display:flex; gap:8px; justify-content:center; margin:12px 0 24px; }
+  .lang-switch button{ border:1px solid var(--brand); background:#fff; color:var(--brand); padding:6px 12px; border-radius:999px; cursor:pointer; }
+  .lang-switch button.active{ background:var(--brand); color:#fff; }
+  section{ display:none; }
+  section.active{ display:block; }
+  footer{ text-align:center; color:var(--muted); margin-top:32px; }
+</style>
+<script>
+  function setLang(k){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(k).classList.add("active");
+    document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.remove("active"));
+    document.getElementById("btn-"+k).classList.add("active");
+  }
+  document.addEventListener("DOMContentLoaded",()=>setLang(location.hash==="#th"?"th":"en"));
+</script>
 </head>
 <body>
-  <div class="logo">
-    <img src="images/cover_page.jpg" alt="SkyKick Studio Cover" />
-    <img src="images/Sky_kick_logo.png" alt="SkyKick Studio Logo" width="200" />
+  <div class="hero">
+    <img src="images/cover_page.jpg" alt="SkyKick Studio Cover">
+    <div class="brand"><img src="images/Sky_kick_logo.png" alt="SkyKick Studio Logo"></div>
   </div>
 
-  <h1>Terms of Use</h1>
-  <p>Effective date: October 2025</p>
+  <div class="wrap">
+    <h1>Terms of Use</h1>
+    <p class="meta">Effective date: October 2025 · SkyKick Studio</p>
 
-  <p>Welcome to <b>Meaw Meaw Match-3</b>, a game developed by SkyKick Studio ("we", "us", or "our"). By downloading or using this game, you agree to these Terms of Use.</p>
+    <div class="lang-switch">
+      <button id="btn-en" onclick="setLang('en')">English</button>
+      <button id="btn-th" onclick="setLang('th')">ไทย</button>
+    </div>
 
-  <h2>License</h2>
-  <p>You are granted a personal, non-commercial license to use this game for entertainment only.</p>
+    <!-- EN -->
+    <section id="en">
+      <p>Welcome to <b>Meaw Meaw Match-3</b> by SkyKick Studio (“we”, “us”, or “our”). By downloading or using the game, you agree to these Terms.</p>
 
-  <h2>Restrictions</h2>
-  <ul>
-    <li>No modifying or reverse-engineering the game.</li>
-    <li>No redistribution or use for unlawful purposes.</li>
-  </ul>
+      <h2>License</h2>
+      <p>We grant you a limited, non-exclusive, non-transferable license to use the game for personal entertainment only.</p>
 
-  <h2>In-App Purchases</h2>
-  <p>Some features or items may require payment. Purchases are final except as required by law.</p>
+      <h2>Restrictions</h2>
+      <ul>
+        <li>No reverse engineering, modification, or redistribution.</li>
+        <li>No unlawful or commercial use without our prior consent.</li>
+      </ul>
 
-  <h2>Advertisements</h2>
-  <p>Our game may display ads via third parties (e.g., AdMob). We are not responsible for the content of those ads.</p>
+      <h2>In-App Purchases</h2>
+      <p>Some items or features may be available for purchase. Except where required by law, all purchases are final and non-refundable.</p>
 
-  <h2>Disclaimer</h2>
-  <p>The game is provided “as is” without warranty of any kind. SkyKick Studio is not liable for any damages arising from use.</p>
+      <h2>Advertisements</h2>
+      <p>The game may display third-party ads (e.g., Google AdMob). We are not responsible for third-party content.</p>
 
-  <h2>Contact Us</h2>
-  <p>For questions, please contact us at:  
-  📧 <a href="mailto:skykick.st.co@gmail.com">skykick.st.co@gmail.com</a></p>
+      <h2>Online Features</h2>
+      <p>Some features may require an internet connection or third-party services. Availability may change without notice.</p>
+
+      <h2>Disclaimer & Limitation of Liability</h2>
+      <p>The game is provided “as is,” without warranties of any kind. We shall not be liable for any indirect, incidental, or consequential damages arising from your use of the game.</p>
+
+      <h2>Changes</h2>
+      <p>We may update these Terms from time to time. Continued use after changes constitutes acceptance.</p>
+
+      <h2>Contact</h2>
+      <p>Reach us at <a href="mailto:skykick.st.co@gmail.com">skykick.st.co@gmail.com</a></p>
+      <footer>© SkyKick Studio. All rights reserved.</footer>
+    </section>
+
+    <!-- TH -->
+    <section id="th">
+      <p>ยินดีต้อนรับสู่ <b>Meaw Meaw Match-3</b> โดย SkyKick Studio (“เรา”) เมื่อดาวน์โหลดหรือใช้งานเกมนี้ ถือว่าคุณยอมรับข้อตกลงฉบับนี้</p>
+
+      <h2>สิทธิ์การใช้งาน</h2>
+      <p>คุณได้รับสิทธิ์แบบจำกัด ไม่ผูกขาด และไม่สามารถโอนสิทธิ์ เพื่อใช้เกมนี้เพื่อความบันเทิงส่วนบุคคลเท่านั้น</p>
+
+      <h2>ข้อจำกัด</h2>
+      <ul>
+        <li>ห้ามแก้ไข แยกส่วนย้อนกลับ หรือแจกจ่ายเกมต่อ</li>
+        <li>ห้ามใช้เพื่อวัตถุประสงค์ผิดกฎหมาย หรือเชิงพาณิชย์โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร</li>
+      </ul>
+
+      <h2>การซื้อภายในแอป</h2>
+      <p>ฟีเจอร์หรือไอเทมบางอย่างอาจต้องชำระเงิน โดยทั่วไปการซื้อถือเป็นที่สิ้นสุดและไม่สามารถขอคืนเงินได้ ยกเว้นตามที่กฎหมายกำหนด</p>
+
+      <h2>โฆษณา</h2>
+      <p>เกมอาจแสดงโฆษณาจากบุคคลที่สาม (เช่น Google AdMob) เราไม่รับผิดชอบต่อเนื้อหาของโฆษณาดังกล่าว</p>
+
+      <h2>การเชื่อมต่อออนไลน์</h2>
+      <p>บางฟีเจอร์อาจต้องใช้อินเทอร์เน็ตหรือบริการภายนอก และอาจมีการเปลี่ยนแปลงความพร้อมให้บริการได้โดยไม่ต้องแจ้งล่วงหน้า</p>
+
+      <h2>ข้อจำกัดความรับผิด</h2>
+      <p>เกมนี้ให้บริการ “ตามสภาพที่เป็นอยู่” โดยไม่มีการรับประกัน เราไม่รับผิดชอบต่อความเสียหายทางอ้อม บังเอิญ หรือเป็นผลสืบเนื่อง อันเกิดจากการใช้งานเกม</p>
+
+      <h2>การเปลี่ยนแปลงข้อตกลง</h2>
+      <p>เราอาจปรับปรุงข้อตกลงเป็นครั้งคราว การใช้งานต่อหลังมีการปรับปรุงถือว่าเป็นการยอมรับข้อตกลงฉบับปรับปรุง</p>
+
+      <h2>ติดต่อเรา</h2>
+      <p>อีเมล: <a href="mailto:skykick.st.co@gmail.com">skykick.st.co@gmail.com</a></p>
+      <footer>© SkyKick Studio สงวนลิขสิทธิ์</footer>
+    </section>
+  </div>
 </body>
 </html>
